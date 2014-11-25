@@ -1,0 +1,29 @@
+INSERT INTO autor(ime, prezime) VALUES
+('Slavko', 'Tkalac'),
+('Mirko', 'Cubrilo'),
+('Mario', 'Radovan'),
+('Vjeran', 'Strahonja'),
+('Miroslav', 'Baca'),
+('Christopher', 'Date');
+
+INSERT INTO izdavac(naziv) VALUES
+('DRIP'),
+('Informator'),
+('Narodne novine'),
+('Addison Wesley');
+
+INSERT INTO knjiga(isbn, naziv, godina, izdavac) VALUES
+(NULL, 'Relacijski model podataka', 1993, 1),
+('953-6363-04-6', 'Visual Basic', 1994, 1),
+(NULL, 'Matematika logika za eks. sisteme', 1989, 2),
+(NULL, 'Programiranje u Prologu', 1990, 2),
+('953-170-002-8', 'Baze podataka', 1993, 2),
+(NULL, 'Projektiranje inf. sistema', 1989, 2),
+(NULL, 'Inf. sustavi proizvodnje', 1992, 2),
+(NULL, 'Uvod u rac. sigurnost', 2004, 3),
+(NULL, 'An Introduction to DBS', 2004, 4),
+(NULL, 'What not how', 2000, 4);
+
+INSERT INTO autor_knjige(knjiga, autor) VALUES
+(1, 1), (2, 2), (3, 2), (4, 3), (5, 3),
+(6, 3), (7, 4), (8, 5), (9, 6), (10, 6);

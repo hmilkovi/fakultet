@@ -1,0 +1,33 @@
+CREATE TABLE izdavac (
+sifra SERIAL PRIMARY KEY,
+naziv VARCHAR(50) NOT NULL);
+
+CREATE TABLE knjiga(
+sifra SERIAL PRIMARY KEY,
+isbn VARCHAR(15),
+naziv VARCHAR(50) NOT NULL,
+godina INTEGER NOT NULL CHECK(godina BETWEEN 1970 AND 2050),
+izdavac INTEGER REFERENCES izdavac ON DELETE RESTRICT ON UPDATE CASCADE);
+
+CREATE TABLE autor(
+sifra SERIAL PRIMARY KEY,
+ime VARCHAR(20) NOT NULL,
+prezime VARCHAR(20) NOT NULL);
+
+CREATE TABLE autor_knjige(
+knjiga INTEGER REFERENCES knjiga,
+autor INTEGER REFERENCES autor,
+CONSTRAINT pk_autor_knjige PRIMARY KEY(knjiga, autor));
+
+CREATE TABLE clan(
+sifra SERIAL PRIMARY KEY,
+ime VARCHAR(20) NOT NULL,
+prezime VARCHAR(20) NOT NULL,
+adresa VARCHAR(50) NOT NULL);
+
+CREATE TABLE posudba(
+clan INTEGER REFERENCES clan,
+datum_posudbe DATE,
+datum_vracanja DATE,
+knjiga INTEGER REFERENCES knjiga,
+CONSTRAINT pk_posudba PRIMARY KEY(clan, knjiga, datum_posudbe));

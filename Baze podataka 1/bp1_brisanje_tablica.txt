@@ -1,0 +1,6 @@
+DROP TABLE posudba;
+DROP TABLE clan;
+DROP TABLE autor_knige;
+DROP TABLE autor;
+DROP TABLE knjiga;
+DROP TABLE izdavac;
